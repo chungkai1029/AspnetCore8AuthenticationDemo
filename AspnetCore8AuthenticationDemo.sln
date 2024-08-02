@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspnetCore8AuthenticationDemo", "src\AspnetCore8AuthenticationDemo.csproj", "{45578196-D48A-47C4-AE3B-DA6BCDB9737E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspnetCore8AuthenticationDemo.Test", "tests\AspnetCore8AuthenticationDemo.Test.csproj", "{05CE2821-552B-4203-BA74-65149C38DDBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45578196-D48A-47C4-AE3B-DA6BCDB9737E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45578196-D48A-47C4-AE3B-DA6BCDB9737E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45578196-D48A-47C4-AE3B-DA6BCDB9737E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45578196-D48A-47C4-AE3B-DA6BCDB9737E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05CE2821-552B-4203-BA74-65149C38DDBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05CE2821-552B-4203-BA74-65149C38DDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05CE2821-552B-4203-BA74-65149C38DDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05CE2821-552B-4203-BA74-65149C38DDBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {096F2169-F003-4F75-A44F-974430C4FE8F}
+	EndGlobalSection
+EndGlobal
