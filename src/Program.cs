@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using AspnetCore8AuthenticationDemo.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration["MySQL:AspnetCore8AuthenticationDemo"] ?? throw new InvalidOperationException("Connection string 'AspnetCore8AuthenticationDemoIdentityDbContextConnection' not found.");
+var connectionString = builder.Configuration["MySQL:AspnetCore8AuthenticationDemo"] ?? throw new InvalidOperationException("Connection string 'AccountDbContextConnection' not found.");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -17,10 +17,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 // To add Identity services to the container.
 builder.Services.AddAuthorization();
-
-// To activate identity APIs.
-// builder.Services.AddIdentityApiEndpoints<IdentityUser>()
-//     .AddEntityFrameworkStores<AccountDbContext>();
 
 var app = builder.Build();
 
