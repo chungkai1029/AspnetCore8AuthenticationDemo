@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AspnetCore8AuthenticationDemo.Migrations
 {
     [DbContext(typeof(AccountDbContext))]
-    [Migration("20240802071858_Initial")]
+    [Migration("20240805024240_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

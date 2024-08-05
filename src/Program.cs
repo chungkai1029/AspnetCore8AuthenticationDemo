@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AspnetCore8AuthenticationDemo.Data;
+using AspnetCore8AuthenticationDemo.Models;
+using AspnetCore8AuthenticationDemo.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration["MySQL:AspnetCore8AuthenticationDemo"] ?? throw new InvalidOperationException("Connection string 'AccountDbContextConnection' not found.");
@@ -17,6 +19,15 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 
 // To add Identity services to the container.
 builder.Services.AddAuthorization();
+
+// To confirm the email address and enables the user to log in.
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.SignIn.RequireConfirmedEmail = true;
+});
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<EmailUser>(builder.Configuration.GetSection("EmailUser"));
 
 var app = builder.Build();
 
