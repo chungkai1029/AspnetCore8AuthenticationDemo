@@ -1,5 +1,3 @@
-using AspnetCore8AuthenticationDemo.Models;
-
 namespace AspnetCore8AuthenticationDemo.Services
 {
     public interface IEmailSender

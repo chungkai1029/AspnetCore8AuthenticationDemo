@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using AspnetCore8AuthenticationDemo.Data;
 using AspnetCore8AuthenticationDemo.Models;
 using AspnetCore8AuthenticationDemo.Services;
+using Microsoft.AspNetCore.Authentication.Google;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration["MySQL:AspnetCore8AuthenticationDemo"] ?? throw new InvalidOperationException("Connection string 'AccountDbContextConnection' not found.");
@@ -28,6 +29,18 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.Configure<EmailUser>(builder.Configuration.GetSection("EmailUser"));
+
+builder.Services.AddAuthentication()
+    .AddGoogle(googleOptions =>
+    {
+        googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+        googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+    })
+    .AddMicrosoftAccount(microsoftOptions =>
+    {
+        microsoftOptions.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
+        microsoftOptions.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+    });
 
 var app = builder.Build();
 
