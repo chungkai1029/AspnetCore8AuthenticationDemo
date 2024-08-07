@@ -9,17 +9,17 @@ namespace AspnetCore8AuthenticationDemo.Services
 {
     public class EmailSender : IEmailSender
     {
-        private EmailUser _emailUser { get; }
+        private Email _email { get; }
 
-        public EmailSender(IOptions<EmailUser> optionsAccessor)
+        public EmailSender(IOptions<Email> optionsAccessor)
         {
-            _emailUser = optionsAccessor.Value;  
+            _email = optionsAccessor.Value;  
         }
 
         public async Task SendEmailAsync(string toEmail, string subject, string message)
         {
             MimeMessage mineMessage = new MimeMessage();
-            mineMessage.From.Add(MailboxAddress.Parse(_emailUser.Username));
+            mineMessage.From.Add(MailboxAddress.Parse(_email.Username));
             mineMessage.To.Add(MailboxAddress.Parse(toEmail));
             mineMessage.Subject = subject;
 
@@ -30,10 +30,10 @@ namespace AspnetCore8AuthenticationDemo.Services
 
             using (var client = new SmtpClient())
             {
-                client.Connect("smtp-mail.outlook.com", 587, SecureSocketOptions.StartTls);
+                client.Connect(_email.Host, 587, SecureSocketOptions.StartTls);
 
                 // Note: only needed if the SMTP server requires authentication
-                client.Authenticate(_emailUser.Username, _emailUser.Password);
+                client.Authenticate(_email.Username, _email.Password);
 
                 await client.SendAsync(mineMessage);
                 client.Disconnect(true);
